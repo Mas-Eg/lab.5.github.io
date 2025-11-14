@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Лабораторная работа 5</title>
+    <title>Калькулятор заказа</title>
     <style>
         .calculator {
             max-width: 400px;
@@ -37,6 +37,8 @@
             font-weight: bold;
         }
     </style>
+    <script src="calculator.js" defer>
+    </script>
 </head>
 <body>
     <div class="calculator">
@@ -48,36 +50,15 @@
         <div class="input-group">
             <label for="product">Выберите товар:</label>
             <select id="product">
-                <option value="1000">Товар 1 - 1000 руб.</option>
-                <option value="2000">Товар 2 - 2000 руб.</option>
-                <option value="3000">Товар 3 - 3000 руб.</option>
+                <option value="100">Товар 1 - 100 руб.</option>
+                <option value="200">Товар 2 - 200 руб.</option>
+                <option value="300">Товар 3 - 300 руб.</option>
             </select>
         </div>
 
-        <button onclick="calculate()">Рассчитать стоимость</button>
+        <button id="calculate-btn">Рассчитать стоимость</button>
         
         <div id="result"></div>
     </div>
-
-    <script>
-        function calculate() {
-            // Получаем значения из формы
-            const quantity = parseInt(document.getElementById('quantity').value);
-            const price = parseInt(document.getElementById('product').value);
-            
-            // Проверка валидности ввода
-            if (isNaN(quantity) || quantity <= 0) {
-                alert('Пожалуйста, введите корректное количество товара');
-                return;
-            }
-
-            // Расчет стоимости
-            const total = quantity * price;
-            
-            // Вывод результата
-            document.getElementById('result').innerHTML = 
-                `Стоимость заказа: ${total.toLocaleString('ru-RU')} руб.`;
-        }
-    </script>
 </body>
 </html>
